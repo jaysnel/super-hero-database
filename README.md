@@ -1,4 +1,4 @@
-# Super Heroe Dictionary
+# Super Hero Dictionary
 
 ## Project setup
 ```
