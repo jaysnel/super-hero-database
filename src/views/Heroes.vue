@@ -6,7 +6,7 @@
             <div v-for="item in filteredList" v-bind:key="item.name">
                 <h3>{{ item.name }}</h3><br/>
                 <p>{{ parseInt(item.id) }}</p><br/>
-                <a  target="_blank" :click="heroPage(item.id)"><button type="button" class="btn btn-dark">Visit</button></a>
+                <a  target="_blank" v-on:click="heroPage(item.id)"><button type="button" class="btn btn-dark">Visit</button></a>
             </div>
         </div>
         {{ token }}
@@ -25,16 +25,16 @@ export default {
         Heroes: superHeroes,
         heroName: null,
         heroId: null,
-        userSearch: ''
+        userSearch: '',
+        heroID: this.$router.params
       }
     },
   components: {
   },
   methods: {
       heroPage: function(id) {
-          parseInt(id);
-
-        //   window.location.replace('/hero/' + id)
+          console.log(this.heroId)
+          this.$router.push({ path: `/hero/${Number(id)}`})
       },
      getHeroName: function() {
          console.log(this.token)

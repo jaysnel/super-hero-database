@@ -1,6 +1,6 @@
 <template>
     <div class="text-center">
-
+      Hero {{ HeroId }}
     </div>
 </template>
 
@@ -9,18 +9,22 @@ import axios from 'axios'
 import superHeroes from '../assets/superherolist.js'
 
 export default {
-  name: 'Heroe',
+  name: 'Hero',
   data: function() {
       return {
         Heroes: superHeroes,
-        HeroId: null,
+        HeroId: this.$route.params.id,
+      }
+    },
+    computed: {
+      destination() {
+        return superHeroes.find(hero => hero.id === this.HeroId)
       }
     },
   components: {
   },
   methods: {
      getHeroName: function() {
-         let heroId = this.HeroId;
       axios.get('https://www.superheroapi.com/api.php/10222460762972255/' + 644).then(res => {
           return res
       })

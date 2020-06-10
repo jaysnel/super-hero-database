@@ -2,6 +2,7 @@ import Vue from 'vue'
 import VueRouter from 'vue-router'
 import Home from '../views/Home.vue'
 import Heroes from '../views/Heroes.vue'
+import Hero from '../views/Hero.vue'
 
 Vue.use(VueRouter)
 
@@ -13,8 +14,23 @@ Vue.use(VueRouter)
   },{
     path: '/heroes',
     name: 'Heroes',
-    component: Heroes
+    component: Heroes,
   },
+    {
+      path: '/hero',
+      name: 'Hero',
+      component: Hero,
+      children: [
+        {
+          path: ':id',
+          meta: {
+            label: 'Hero Details'
+          },
+          name: 'Hero',
+          component: Hero
+        }
+      ]
+    },
   {
     path: '/about',
     name: 'About',
