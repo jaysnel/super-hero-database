@@ -1,8 +1,10 @@
 <template>
     <div class="text-center">
-      Hero {{ HeroId }}
-
-      <div>{{ heroInfo }}</div>
+      <h1>Hero {{ HeroId }}</h1>
+      <img :src="HeroInfo.image.url">
+      <p>{{ HeroInfo.name }}</p>
+      <p>Gender: {{ HeroInfo.appearance.gender }}</p>
+      <p>{{ HeroInfo }}</p>
     </div>
 </template>
 
@@ -16,7 +18,7 @@ export default {
       return {
         Heroes: superHeroes,
         HeroId: this.$route.params.id,
-        heroInfo: null
+        HeroInfo: null
       }
     },
   components: {
@@ -24,8 +26,8 @@ export default {
   methods: {
      getHeroName: function() {
       axios.get('https://www.superheroapi.com/api.php/10222460762972255/' + this.HeroId).then(res => {
-          this.heroInfo = res.data;
-          console.log(res.data)
+          this.HeroInfo = res.data;
+          console.log(this.HeroInfo)
       })
     }
   },
@@ -36,4 +38,8 @@ export default {
 </script>
 
 <style scoped>
+img {
+  max-width: 100%;
+  width: 225px;
+}
 </style>
