@@ -1,6 +1,8 @@
 <template>
     <div class="text-center">
       Hero {{ HeroId }}
+
+      <div>{{ heroInfo }}</div>
     </div>
 </template>
 
@@ -14,25 +16,21 @@ export default {
       return {
         Heroes: superHeroes,
         HeroId: this.$route.params.id,
-      }
-    },
-    computed: {
-      destination() {
-        return superHeroes.find(hero => hero.id === this.HeroId)
+        heroInfo: null
       }
     },
   components: {
   },
   methods: {
      getHeroName: function() {
-      axios.get('https://www.superheroapi.com/api.php/10222460762972255/' + 644).then(res => {
-          return res
+      axios.get('https://www.superheroapi.com/api.php/10222460762972255/' + this.HeroId).then(res => {
+          this.heroInfo = res.data;
+          console.log(res.data)
       })
     }
   },
   mounted() {
     this.getHeroName();
-    console.log(this.Heroes)
   }
 }
 </script>

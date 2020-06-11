@@ -25,15 +25,13 @@ export default {
         Heroes: superHeroes,
         heroName: null,
         heroId: null,
-        userSearch: '',
-        heroID: this.$router.params
+        userSearch: ''
       }
     },
   components: {
   },
   methods: {
       heroPage: function(id) {
-          console.log(this.heroId)
           this.$router.push({ path: `/hero/${Number(id)}`})
       },
      getHeroName: function() {
