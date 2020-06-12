@@ -1,11 +1,11 @@
 <template>
   <div class="hero-appearance-body">
-    <p>{{ eyeColor }}</p>
-    <p>{{ gender }}</p>
-    <p>{{ hairColor }}</p>
-    <p>{{ height }}</p>
-    <p>{{ race }}</p>
-    <p>{{ weight }}</p>
+    <p>Eye Color: {{ eyeColor }}</p>
+    <p>Gender: {{ gender }}</p>
+    <p>Hair Color: {{ hairColor }}</p>
+    <p>Height: {{ height }}</p>
+    <p>Race: {{ race }}</p>
+    <p>Weight: {{ weight }}</p>
   </div>
 </template>
 
@@ -26,7 +26,7 @@ export default {
 <!-- Add "scoped" attribute to limit CSS to this component only -->
 <style scoped>
 .hero-appearance-body {
-  background: #0fff;
+  background: rgba(255,255,255,.5);
   display: grid;
   grid-template-columns: 1fr 1fr;
 }

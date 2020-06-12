@@ -18,7 +18,7 @@ export default {
 <!-- Add "scoped" attribute to limit CSS to this component only -->
 <style scoped>
 .hero-work-body {
-    background: lightcoral;
+    background: rgba(255,255,255,.5);
     display: grid;
     grid-template-columns: 1fr 1fr;
 }

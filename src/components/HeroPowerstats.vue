@@ -1,11 +1,11 @@
 <template>
   <div class="hero-powerstats-body">
-    <p>{{ combat }}</p>
-    <p>{{ durability }}</p>
-    <p>{{ intelligence }}</p>
-    <p>{{ power }}</p>
-    <p>{{ speed }}</p>
-    <p>{{ strength }}</p>
+    <p>Combat: {{ combat }}</p>
+    <p>Durability: {{ durability }}</p>
+    <p>Intelligence: {{ intelligence }}</p>
+    <p>Power: {{ power }}</p>
+    <p>Speed: {{ speed }}</p>
+    <p>Strength: {{ strength }}</p>
   </div>
 </template>
 
@@ -26,7 +26,7 @@ export default {
 <!-- Add "scoped" attribute to limit CSS to this component only -->
 <style scoped>
 .hero-powerstats-body {
-    background: lightgreen;
+    background: rgba(255,255,255,.5);
     display: grid;
     grid-template-columns: 1fr 1fr;
 }

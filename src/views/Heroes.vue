@@ -1,15 +1,14 @@
 <template>
-    <div class="text-center">
+    <div class="text-center hero-outer-container">
         <input type="text" v-model="userSearch">
         <h1>Heroes</h1>
-        <div class="hero-container container text-center">
+        <div class="hero-container-inner container text-center">
             <div v-for="item in filteredList" v-bind:key="item.name">
-                <h3>{{ item.name }}</h3><br/>
-                <p>{{ parseInt(item.id) }}</p><br/>
+                <h3>{{ item.name }}</h3>
+                <p>{{ parseInt(item.id) }}</p>
                 <a  target="_blank" v-on:click="heroPage(item.id)"><button type="button" class="btn btn-dark">Visit</button></a>
             </div>
         </div>
-        {{ token }}
     </div>
 </template>
 
@@ -34,10 +33,14 @@ export default {
       heroPage: function(id) {
           this.$router.push({ path: `/hero/${Number(id)}`})
       },
-     getHeroName: function() {
-         console.log(this.token)
-      axios.get('https://www.superheroapi.com/api.php/10222460762972255/644').then(res => {
-          return res
+     getHeroInfo: function() {
+         let token = this.token;
+         let url = 'https://www.superheroapi.com/api.php/' + token + '/' + getRandomNumber() + '/image';
+         function getRandomNumber() {
+             return Math.floor((Math.random() * 100) + 1);
+         }
+        axios.get(url).then(res => {
+          console.log(res.data)
       })
     }
   },
@@ -45,44 +48,48 @@ export default {
         filteredList: function() {
                 let heroList = [];
                 let searchOption = this.userSearch;
-                
                 for(var i = 0; i <= 10; i++) {heroList.push(this.Heroes[i])}
 
                 return heroList.filter(hero => {
 
                     if(searchOption === '') { return hero}
 
-                    let dataArray = heroList;
-                    let finalList = [];
+                    // let dataArray = heroList;
+                    // let finalArray = [];
+                    let userDataArray = Object.values(hero);
+                    //console.log(userDataArray);
 
-                    for(var i = 0; i < dataArray.length - 1; i++) {
-                        if(dataArray[i].name.toLowerCase().includes(searchOption.toLowerCase())) {
+                    for(var i = 0; i < userDataArray.length - 1; i++) {
+                        //let finalArray = [];
+                        if(userDataArray[1][i].toLowerCase().includes(searchOption.toLowerCase())) {
+                            console.log({name: userDataArray[1][i], id: userDataArray[0][i]})
                             
-                            finalList.push(dataArray[i])
-                            
+                            //return userDataArray[i].toLowerCase().includes(searchOption.toLowerCase())
                         }
                     }
-                    console.log(finalList)
-                    return finalList;
+                    // console.log("Final array...")
+                    // console.log(finalArray)
+                    // return finalArray;
 
                 })
 
             }
+
+            
+  },
+  mounted() {
+      this.getHeroInfo();
   }
 }
 </script>
 
 <style scoped>
-.hero-container {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: center;
+.hero-container-inner {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    grid-gap: 1rem;
 }
-.hero-container div {
-    max-width: 100%;
-    width: 300px;
-}
-.hero-container img {
+.hero-container-inner img {
     max-width: 100%;
     width: 100px;
 }
