@@ -2,7 +2,8 @@
     <div class="text-center hero-outside-container">
       <div class="top-name-image">
         <h1>{{ HeroInfo.name }}</h1>
-        <img :src="HeroInfo.image.url">
+        <img :src="HeroInfo.image.url"><br/>
+        <button type="button" class="btn btn-warning" v-on:click="backToHeroesPage()">Back To Heroes</button>
       </div>
       
         <div class="hero-body">
@@ -45,6 +46,40 @@
           :occupation="HeroInfo.work.occupation"
           />
         </div>
+
+
+
+        <!-- Button trigger modal -->
+<button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModalCenter">
+  Launch demo modal
+</button>
+
+<!-- Modal -->
+<div class="modal fade" id="exampleModalCenter" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+  <div class="modal-dialog modal-dialog-centered" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLongTitle">Hero Work</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        <HeroWork class="hero-work" 
+          :base="HeroInfo.work.base"
+          :occupation="HeroInfo.work.occupation"
+          />
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+        <button type="button" class="btn btn-primary">Save changes</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+
     </div>
 </template>
 <script>
@@ -85,6 +120,9 @@ export default {
           vueApp.HeroInfo = res.data;
           console.log(vueApp.HeroInfo)
       })
+    },
+    backToHeroesPage: function() {
+      this.$router.push({path: '/heroes'});
     }
   },
   mounted() {
@@ -94,11 +132,11 @@ export default {
 </script>
 
 <style scoped>
-/* .hero-outside-container{
+.hero-outside-container{
   background: url('../assets/super-hero-collage.jpg');
   background-size: cover;
   background-position: center center;
-} */
+}
 
 .top-name-image {
   background: rgba(255,255,255,.5);
@@ -108,8 +146,11 @@ export default {
   background: rgba(255,255,255,.5);
   display: grid;
   grid-template-columns: 1fr 1fr 1fr;
+  grid-gap: 5px;
 }
-
+.hero-body div {
+  border: 1px solid #000;
+}
 img {
   max-width: 100%;
   width: 225px;

@@ -21,10 +21,13 @@
 
 #nav {
   padding: 30px;
+  /* background: #000; */
+  /* color: #ffc107; */
 }
 
 #nav a {
   font-weight: bold;
+  /* color: #fff; */
   color: #2c3e50;
 }
 
