@@ -1,7 +1,36 @@
 <template>
   <div class="hero-connections-body">
-    <p>Group Affiliation: {{ groupAffiliation }}</p>
-    <p>Relatives: {{ relatives }}</p>
+    <!-- <p>Group Affiliation: {{ groupAffiliation }}</p>
+    <p>Relatives: {{ relatives }}</p> -->
+
+
+
+<h1>Personal Connections</h1>
+            <!-- Button trigger modal -->
+<button type="button" class="btn btn-primary" data-toggle="modal" data-target="#HeroConnections">
+  Learn More
+</button>
+
+<!-- Modal -->
+<div class="modal fade" id="HeroConnections" tabindex="-1" role="dialog" aria-labelledby="HeroConnectionsTitle" aria-hidden="true">
+  <div class="modal-dialog modal-dialog-centered" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="HeroConnections">Personal Connections</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        <p><span>Group Affiliation:</span> {{ groupAffiliation }}</p>
+        <p><span>Relatives:</span> {{ relatives }}</p>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+      </div>
+    </div>
+  </div>
+</div>
   </div>
 </template>
 
@@ -19,7 +48,12 @@ export default {
 <style scoped>
 .hero-connections-body {
     background: rgba(255,255,255,.5);
-    display: grid;
-    grid-template-columns: 1fr 1fr;
+    /* display: grid;
+    grid-template-columns: 1fr 1fr; */
+}
+
+/* MODAL POPUP STYLING */
+.modal-content .modal-body span {
+  font-weight: bold;
 }
 </style>
