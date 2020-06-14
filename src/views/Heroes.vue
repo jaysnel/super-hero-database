@@ -1,9 +1,12 @@
 <template>
     <div class="text-center hero-outer-container">
-        <h1>Search</h1><input type="text" v-model="userSearch">
+        <div class="user-search">
+            <h3>Search:</h3>
+            <input type="text" v-model="userSearch">
+        </div>
         <div class="hero-container-inner container text-center">
             <div v-for="item in filteredList" v-bind:key="item.id">
-                <h3>{{ item.name }}</h3>
+                <h4>{{ item.name }}</h4>
                 <!-- <p>{{ parseInt(item.id) }}</p> -->
                 <a  target="_blank" v-on:click="heroPage(item.id)"><button type="button" class="btn btn-info">View Info</button></a>
             </div>
@@ -62,17 +65,36 @@ export default {
 </script>
 
 <style scoped>
+body {
+    max-width: 100%;
+    widows: 100%;
+}
+
 .hero-outer-container {
     color: #fff;
 }
 
-.hero-container-inner {
-    display: grid;
-    grid-template-columns: 1fr 1fr 1fr;
-    grid-gap: 1rem;
+.user-search {
+    margin: 15px 0;
 }
+
 .hero-container-inner img {
     max-width: 100%;
     width: 100px;
+}
+
+@media(min-width: 769px) {
+    .hero-container-inner {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    grid-gap: 1rem;
+    }
+}
+@media(max-width: 769px) {
+    .hero-container-inner {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-gap: 1rem;
+    }
 }
 </style>

@@ -2,7 +2,7 @@
   <div id="app">
     <div id="nav">
       <router-link to="/">Home</router-link> |
-      <router-link to="/about">About</router-link> |
+      <!-- <router-link to="/about">About</router-link> | -->
       <router-link to="/heroes">Heroes</router-link>
     </div>
     <router-view/>
@@ -27,6 +27,8 @@ body #app {
   background: var(--main-bg);
   height: 100%;
   min-height: 100vh;
+  max-width: 100%;
+  width: 100%;
 }
 #app {
   font-family: Avenir, Helvetica, Arial, sans-serif;
@@ -62,6 +64,8 @@ body #app {
 }
 .footer .footer-section {
   width: 100%;
-  text-align: left;
+  text-align: center;
+  font-weight: bold;
+  margin-top: 10px;
 }
 </style>
