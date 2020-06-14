@@ -3,7 +3,6 @@
       <div class="top-name-image">
         <h1>{{ HeroInfo.name }}</h1>
         <img :src="HeroInfo.image.url"><br/>
-        <button type="button" class="btn btn-warning" v-on:click="backToHeroesPage()">Back To Heroes</button>
       </div>
       
         <div class="hero-body">
@@ -47,7 +46,11 @@
           />
         </div>
 
-
+    <div class="text-center back-to-heroes">
+      <div>
+      <button type="button" class="btn btn-warning" v-on:click="backToHeroesPage()">Back To Heroes</button>
+      </div>
+    </div>
 
     </div>
 </template>
@@ -64,7 +67,6 @@ export default {
   name: 'Hero',
   data: function() {
       return {
-        token: process.env.VUE_APP_FB_TOKEN,
         Heroes: superHeroes,
         HeroId: this.$route.params.id,
         HeroInfo: null
@@ -80,12 +82,12 @@ export default {
   methods: {
      getHeroName: function() {
        let vueApp = this;
-       let token = this.token;
+       let token = process.env.VUE_APP_FB_TOKEN;
        let heroId = this.HeroId;
        let url = 'https://www.superheroapi.com/api.php/' + token + '/' + heroId;
 
       axios.get(url).then(res => {
-        if(res.data.appearance.race == "null") res.data.appearance.race = "Unknown"
+        if(res.data.appearance.race == "null") res.data.appearance.race = "-"
           vueApp.HeroInfo = res.data;
           console.log(vueApp.HeroInfo)
       })
@@ -101,32 +103,30 @@ export default {
 </script>
 
 <style scoped>
-/* .hero-outside-container{
-  background: url('../assets/super-hero-collage.jpg');
-  background-size: cover;
-  background-position: center center;
-} */
 
 .top-name-image {
-  background: rgba(255,255,255,.5);
+  color: #fff;
 }
 
 .hero-body {
-  background: rgba(255,255,255,.5);
   display: grid;
   grid-template-columns: 1fr 1fr 1fr;
   grid-gap: 5px;
+  color: #fff;
 }
-/* .hero-body div {
-  border: 1px solid #000;
-} */
+
 img {
   max-width: 100%;
   width: 225px;
 }
 
+.back-to-heroes {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  grid-gap: 5px;
+}
 
-
-
-
+.back-to-heroes div {
+  margin-top: 20px;
+}
 </style>

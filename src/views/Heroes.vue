@@ -5,7 +5,7 @@
             <div v-for="item in filteredList" v-bind:key="item.id">
                 <h3>{{ item.name }}</h3>
                 <!-- <p>{{ parseInt(item.id) }}</p> -->
-                <a  target="_blank" v-on:click="heroPage(item.id)"><button type="button" class="btn btn-dark">View Info</button></a>
+                <a  target="_blank" v-on:click="heroPage(item.id)"><button type="button" class="btn btn-info">View Info</button></a>
             </div>
         </div>
     </div>
@@ -19,7 +19,6 @@ export default {
   name: 'Heroes',
   data: function() {
       return {
-        token: process.env.VUE_APP_FB_TOKEN,
         Heroes: superHeroes,
         heroName: null,
         heroId: null,
@@ -33,7 +32,7 @@ export default {
           this.$router.push({ path: `/hero/${Number(id)}`})
       },
      getHeroInfo: function() {
-         let token = this.token;
+         let token = process.env.VUE_APP_FB_TOKEN;
          let url = 'https://www.superheroapi.com/api.php/' + token + '/' + getRandomNumber() + '/image';
          function getRandomNumber() {
              return Math.floor((Math.random() * 100) + 1);
@@ -49,7 +48,7 @@ export default {
                 let newList = [];
                 let searchOption = this.userSearch;
 
-                if(searchOption === '') { return heroList } // Returnin full list if user has not typed anything in
+                if(searchOption === '') { return heroList } // Returning full list if user has not typed anything in
                 heroList.filter(j => {
                     if(j.name.toLowerCase().includes(searchOption.toLowerCase())) newList.push(j);
                 })
@@ -63,6 +62,10 @@ export default {
 </script>
 
 <style scoped>
+.hero-outer-container {
+    color: #fff;
+}
+
 .hero-container-inner {
     display: grid;
     grid-template-columns: 1fr 1fr 1fr;

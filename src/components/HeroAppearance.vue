@@ -1,18 +1,10 @@
 <template>
   <div class="hero-appearance-body">
-    <!-- <p>Eye Color: {{ eyeColor }}</p>
-    <p>Gender: {{ gender }}</p>
-    <p>Hair Color: {{ hairColor }}</p>
-    <p>Height: {{ height }}</p>
-    <p>Race: {{ race }}</p>
-    <p>Weight: {{ weight }}</p> -->
 
 
-
-
-<h1>Appearance</h1>
+<h2>Appearance</h2>
             <!-- Button trigger modal -->
-<button type="button" class="btn btn-primary" data-toggle="modal" data-target="#HeroAppearance">
+<button type="button" class="btn btn-info" data-toggle="modal" data-target="#HeroAppearance">
   Learn More
 </button>
 
@@ -58,14 +50,13 @@ export default {
 
 <!-- Add "scoped" attribute to limit CSS to this component only -->
 <style scoped>
-.hero-appearance-body {
-  background: rgba(255,255,255,.5);
-  /* display: grid;
-  grid-template-columns: 1fr 1fr; */
-}
 
 /* MODAL POPUP STYLING */
 .modal-content .modal-body span {
   font-weight: bold;
+}
+
+.modal-content {
+  color: #293C4E;
 }
 </style>

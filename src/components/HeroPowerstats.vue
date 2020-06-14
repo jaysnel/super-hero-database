@@ -1,17 +1,10 @@
 <template>
   <div class="hero-powerstats-body">
-    <!-- <p>Combat: {{ combat }}</p>
-    <p>Durability: {{ durability }}</p>
-    <p>Intelligence: {{ intelligence }}</p>
-    <p>Power: {{ power }}</p>
-    <p>Speed: {{ speed }}</p>
-    <p>Strength: {{ strength }}</p> -->
 
 
-
-<h1>Powerstats</h1>
+<h2>Powerstats</h2>
             <!-- Button trigger modal -->
-<button type="button" class="btn btn-primary" data-toggle="modal" data-target="#powerstats">
+<button type="button" class="btn btn-info" data-toggle="modal" data-target="#powerstats">
   Learn More
 </button>
 
@@ -58,14 +51,13 @@ export default {
 
 <!-- Add "scoped" attribute to limit CSS to this component only -->
 <style scoped>
-.hero-powerstats-body {
-    background: rgba(255,255,255,.5);
-    /* display: grid;
-    grid-template-columns: 1fr 1fr; */
-}
 
 /* MODAL POPUP STYLING */
 .modal-content .modal-body span {
   font-weight: bold;
+}
+
+.modal-content {
+  color: #293C4E;
 }
 </style>

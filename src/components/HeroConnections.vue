@@ -1,13 +1,9 @@
 <template>
   <div class="hero-connections-body">
-    <!-- <p>Group Affiliation: {{ groupAffiliation }}</p>
-    <p>Relatives: {{ relatives }}</p> -->
 
-
-
-<h1>Personal Connections</h1>
+<h2>Personal Connections</h2>
             <!-- Button trigger modal -->
-<button type="button" class="btn btn-primary" data-toggle="modal" data-target="#HeroConnections">
+<button type="button" class="btn btn-info" data-toggle="modal" data-target="#HeroConnections">
   Learn More
 </button>
 
@@ -46,14 +42,13 @@ export default {
 
 <!-- Add "scoped" attribute to limit CSS to this component only -->
 <style scoped>
-.hero-connections-body {
-    background: rgba(255,255,255,.5);
-    /* display: grid;
-    grid-template-columns: 1fr 1fr; */
-}
 
 /* MODAL POPUP STYLING */
 .modal-content .modal-body span {
   font-weight: bold;
+}
+
+.modal-content {
+  color: #293C4E;
 }
 </style>

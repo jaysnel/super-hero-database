@@ -1,12 +1,8 @@
 <template>
   <div class="hero-work-body">
-    <!-- <p>Base: {{ base }}</p>
-    <p>Occupation: {{ occupation }}</p> -->
-
-
-    <h1>Civillian Work</h1>
+    <h2>Civillian Work</h2>
             <!-- Button trigger modal -->
-<button type="button" class="btn btn-primary" data-toggle="modal" data-target="#HeroWork">
+<button type="button" class="btn btn-info" data-toggle="modal" data-target="#HeroWork">
   Learn More
 </button>
 
@@ -21,7 +17,7 @@
         </button>
       </div>
       <div class="modal-body">
-        <p><span>Base:</span> {{ base }}</p>
+        <p><span>Home Base:</span> {{ base }}</p>
         <p><span>Occupation:</span> {{ occupation }}</p>
       </div>
       <div class="modal-footer">
@@ -45,14 +41,13 @@ export default {
 
 <!-- Add "scoped" attribute to limit CSS to this component only -->
 <style scoped>
-.hero-work-body {
-    background: rgba(255,255,255,.5);
-    /* display: grid;
-    grid-template-columns: 1fr 1fr; */
-}
 
 /* MODAL POPUP STYLING */
 .modal-content .modal-body span {
   font-weight: bold;
+}
+
+.modal-content {
+  color: #293C4E;
 }
 </style>

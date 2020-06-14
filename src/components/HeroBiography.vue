@@ -1,16 +1,8 @@
 <template>
   <div class="hero-biography-body">
-    <!-- <p>Aliases: {{ aliases }}</p>
-    <p>Alignment: {{ alignment }}</p>
-    <p>Alter-Egos:{{ alterEgos }}</p>
-    <p>First Appearance: {{ firstAppearance }}</p>
-    <p>Full Name: {{ fullName }}</p>
-    <p>Gender: {{ gender }}</p>
-    <p>Place Of Birth: {{ placeOfBirth }}</p>
-    <p>Publisher: {{ publisher }}</p> -->
-<h1>Biography</h1>
+<h2>Biography</h2>
             <!-- Button trigger modal -->
-<button type="button" class="btn btn-primary" data-toggle="modal" data-target="#HeroBiography">
+<button type="button" class="btn btn-info" data-toggle="modal" data-target="#HeroBiography">
   Learn More
 </button>
 
@@ -62,14 +54,13 @@ export default {
 
 <!-- Add "scoped" attribute to limit CSS to this component only -->
 <style scoped>
-.hero-biography-body {
-    background: rgba(255,255,255,.5);
-    /* display: grid;
-    grid-template-columns: 1fr 1fr; */
-}
 
 /* MODAL POPUP STYLING */
 .modal-content .modal-body span {
   font-weight: bold;
+}
+
+.modal-content {
+  color: #293C4E;
 }
 </style>
