@@ -1,12 +1,11 @@
 <template>
     <div class="text-center hero-outer-container">
-        <input type="text" v-model="userSearch">
-        <h1>Heroes</h1>
+        <h1>Search</h1><input type="text" v-model="userSearch">
         <div class="hero-container-inner container text-center">
             <div v-for="item in filteredList" v-bind:key="item.id">
                 <h3>{{ item.name }}</h3>
-                <p>{{ parseInt(item.id) }}</p>
-                <a  target="_blank" v-on:click="heroPage(item.id)"><button type="button" class="btn btn-dark">Visit</button></a>
+                <!-- <p>{{ parseInt(item.id) }}</p> -->
+                <a  target="_blank" v-on:click="heroPage(item.id)"><button type="button" class="btn btn-dark">View Info</button></a>
             </div>
         </div>
     </div>
@@ -50,15 +49,10 @@ export default {
                 let newList = [];
                 let searchOption = this.userSearch;
 
-                // for(let i = 0; i <= 40; i++) {heroList.push(this.Heroes[i])}
-                
                 if(searchOption === '') { return heroList } // Returnin full list if user has not typed anything in
-
                 heroList.filter(j => {
                     if(j.name.toLowerCase().includes(searchOption.toLowerCase())) newList.push(j);
                 })
-                
-                
                 return newList;
             }
   },

@@ -1,8 +1,20 @@
 <template>
   <div class="home">
-    <h1>Heroes</h1>
-    <!-- <HelloWorld msg="Welcome to Your Vue.js App"/> -->
-    <p>{{ Heroes }}</p>
+
+    <div class="dl1">
+    <h1>Hero Home Title</h1>
+    </div>
+
+    <div class="dl2">
+    <h1>About Hero Database</h1>
+    </div>
+
+    <div class="dl3">
+    <h1>Super Human Database</h1>
+    </div>
+
+
+
   </div>
 </template>
 
@@ -27,3 +39,9 @@ export default {
   }
 }
 </script>
+
+<style scoped>
+.home div {
+  background: #ff0000;
+}
+</style>
