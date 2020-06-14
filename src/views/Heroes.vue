@@ -3,7 +3,7 @@
         <input type="text" v-model="userSearch">
         <h1>Heroes</h1>
         <div class="hero-container-inner container text-center">
-            <div v-for="item in filteredList" v-bind:key="item.name">
+            <div v-for="item in filteredList" v-bind:key="item.id">
                 <h3>{{ item.name }}</h3>
                 <p>{{ parseInt(item.id) }}</p>
                 <a  target="_blank" v-on:click="heroPage(item.id)"><button type="button" class="btn btn-dark">Visit</button></a>
@@ -45,37 +45,22 @@ export default {
     }
   },
   computed: {
-        filteredList: function() {
-                let heroList = [];
+      filteredList: function() {
+                let heroList = this.Heroes;
+                let newList = [];
                 let searchOption = this.userSearch;
-                for(var i = 0; i <= 10; i++) {heroList.push(this.Heroes[i])}
 
-                return heroList.filter(hero => {
+                // for(let i = 0; i <= 40; i++) {heroList.push(this.Heroes[i])}
+                
+                if(searchOption === '') { return heroList } // Returnin full list if user has not typed anything in
 
-                    if(searchOption === '') { return hero}
-
-                    // let dataArray = heroList;
-                    // let finalArray = [];
-                    let userDataArray = Object.values(hero);
-                    //console.log(userDataArray);
-
-                    for(var i = 0; i < userDataArray.length - 1; i++) {
-                        //let finalArray = [];
-                        if(userDataArray[1][i].toLowerCase().includes(searchOption.toLowerCase())) {
-                            console.log({name: userDataArray[1][i], id: userDataArray[0][i]})
-                            
-                            //return userDataArray[i].toLowerCase().includes(searchOption.toLowerCase())
-                        }
-                    }
-                    // console.log("Final array...")
-                    // console.log(finalArray)
-                    // return finalArray;
-
+                heroList.filter(j => {
+                    if(j.name.toLowerCase().includes(searchOption.toLowerCase())) newList.push(j);
                 })
-
+                
+                
+                return newList;
             }
-
-            
   },
   mounted() {
       this.getHeroInfo();
